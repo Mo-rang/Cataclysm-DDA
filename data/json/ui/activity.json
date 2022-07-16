@@ -7,37 +7,37 @@
     "clauses": [
       {
         "id": "none",
-        "text": "None",
+        "text": "없음",
         "color": "light_gray",
         "condition": { "compare_int": [ { "u_val": "activity_level" }, "==", { "const": 0 } ] }
       },
       {
         "id": "light",
-        "text": "Light",
+        "text": "가벼움",
         "color": "yellow",
         "condition": { "compare_int": [ { "u_val": "activity_level" }, "==", { "const": 1 } ] }
       },
       {
         "id": "moderate",
-        "text": "Moderate",
+        "text": "보통",
         "color": "yellow",
         "condition": { "compare_int": [ { "u_val": "activity_level" }, "==", { "const": 2 } ] }
       },
       {
         "id": "brisk",
-        "text": "Brisk",
+        "text": "활발함",
         "color": "light_red",
         "condition": { "compare_int": [ { "u_val": "activity_level" }, "==", { "const": 3 } ] }
       },
       {
         "id": "active",
-        "text": "Active",
+        "text": "활동적",
         "color": "light_red",
         "condition": { "compare_int": [ { "u_val": "activity_level" }, "==", { "const": 4 } ] }
       },
       {
         "id": "extreme",
-        "text": "Extreme",
+        "text": "극심함",
         "color": "red",
         "condition": { "compare_int": [ { "u_val": "activity_level" }, ">=", { "const": 5 } ] }
       }
