@@ -7,42 +7,42 @@
       { "id": "bitten", "text": "bitten", "sym": "B", "color": "yellow", "condition": { "u_has_effect": "bite" } },
       {
         "id": "infected",
-        "text": "infected",
+        "text": "감염",
         "sym": "I",
         "color": "pink",
         "condition": { "u_has_effect": "infected" }
       },
       {
         "id": "broken",
-        "text": "broken",
+        "text": "골절",
         "sym": "%",
         "color": "magenta",
         "condition": { "compare_int": [ { "u_val": "hp" }, "==", { "const": 0 } ] }
       },
       {
         "id": "splinted",
-        "text": "splinted",
+        "text": "부목",
         "sym": "=",
         "color": "light_gray",
         "condition": { "u_has_worn_with_flag": "SPLINT" }
       },
       {
         "id": "bandaged",
-        "text": "bandaged",
+        "text": "붕대",
         "sym": "+",
         "color": "white",
         "condition": { "u_has_effect": "bandaged" }
       },
       {
         "id": "disinfected",
-        "text": "disinfected",
+        "text": "소독",
         "sym": "$",
         "color": "light_green",
         "condition": { "u_has_effect": "disinfected" }
       },
       {
         "id": "bleeding",
-        "text": "bleeding",
+        "text": "출혈",
         "sym": "b",
         "color": "light_red",
         "condition": {
@@ -54,7 +54,7 @@
       },
       {
         "id": "bleeding",
-        "text": "bleeding",
+        "text": "출혈",
         "sym": "b",
         "color": "red",
         "condition": {
@@ -66,7 +66,7 @@
       },
       {
         "id": "bleeding",
-        "text": "bleeding",
+        "text": "출혈",
         "sym": "b",
         "color": "red_red",
         "condition": { "u_has_effect": "bleed", "intensity": 21 }
