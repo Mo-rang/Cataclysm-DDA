@@ -5,16 +5,16 @@
     "style": "clause",
     "default_clause": { "text": "bugging out", "sym": "-", "color": "dark_gray" },
     "clauses": [
-      { "id": "run", "text": "running", "sym": "R", "color": "red", "condition": { "u_has_move_mode": "run" } },
-      { "id": "walk", "text": "walking", "sym": "W", "color": "white", "condition": { "u_has_move_mode": "walk" } },
+      { "id": "run", "text": "달리기", "sym": "R", "color": "red", "condition": { "u_has_move_mode": "run" } },
+      { "id": "walk", "text": "걷기", "sym": "W", "color": "white", "condition": { "u_has_move_mode": "walk" } },
       {
         "id": "crouch",
-        "text": "crouching",
+        "text": "앉기",
         "sym": "C",
         "color": "light_blue",
         "condition": { "u_has_move_mode": "crouch" }
       },
-      { "id": "prone", "text": "prone", "sym": "P", "color": "green", "condition": { "u_has_move_mode": "prone" } }
+      { "id": "prone", "text": "엎드리기", "sym": "P", "color": "green", "condition": { "u_has_move_mode": "prone" } }
     ]
   },
   {
