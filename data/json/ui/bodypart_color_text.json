@@ -5,13 +5,13 @@
     "type": "widget",
     "bodypart": "head",
     "style": "text",
-    "default_clause": { "text": "HEAD " },
+    "default_clause": { "text": "머리 " },
     "clauses": [
-      { "id": "bitten", "text": "HEAD ", "color": "blue", "condition": { "u_has_effect": "bite" } },
-      { "id": "infected", "text": "HEAD ", "color": "green", "condition": { "u_has_effect": "infected" } },
+      { "id": "bitten", "text": "머리 ", "color": "blue", "condition": { "u_has_effect": "bite" } },
+      { "id": "infected", "text": "머리 ", "color": "green", "condition": { "u_has_effect": "infected" } },
       {
         "id": "bleeding1",
-        "text": "HEAD ",
+        "text": "머리 ",
         "color": "light_red",
         "condition": {
           "and": [
@@ -22,7 +22,7 @@
       },
       {
         "id": "bleeding2",
-        "text": "HEAD ",
+        "text": "머리 ",
         "color": "red",
         "condition": {
           "and": [
@@ -33,13 +33,13 @@
       },
       {
         "id": "bleeding2",
-        "text": "HEAD ",
+        "text": "머리 ",
         "color": "red_red",
         "condition": { "u_has_effect": "bleed", "intensity": 21 }
       },
       {
         "id": "bleedingAndBitten12",
-        "text": "HEAD ",
+        "text": "머리 ",
         "color": "magenta",
         "condition": {
           "and": [
@@ -51,7 +51,7 @@
       },
       {
         "id": "bleedingAndBitten3",
-        "text": "HEAD ",
+        "text": "머리 ",
         "color": "magenta_red",
         "condition": { "and": [ { "u_has_effect": "bite" }, { "u_has_effect": "bleed", "intensity": 21 } ] }
       }
