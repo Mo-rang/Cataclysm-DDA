@@ -4,7 +4,7 @@
     "type": "widget",
     "style": "clause",
     "clauses": [
-      { "id": "bitten", "text": "bitten", "sym": "B", "color": "yellow", "condition": { "u_has_effect": "bite" } },
+      { "id": "bitten", "text": "물림", "sym": "B", "color": "yellow", "condition": { "u_has_effect": "bite" } },
       {
         "id": "infected",
         "text": "감염",
