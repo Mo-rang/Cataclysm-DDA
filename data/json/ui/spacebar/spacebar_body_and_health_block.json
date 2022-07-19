@@ -71,7 +71,7 @@
     "type": "widget",
     "style": "text",
     "colors": [ "c_dark_gray" ],
-    "string": "=>  ( HP/Status/Encum./Temp./swet )  <="
+    "string": "=>  ( HP/상태/방해도/체온/젖음 )  <="
   },
   {
     "id": "spacebar_filler_hp",
@@ -110,7 +110,7 @@
     "label": "status",
     "flags": [ "W_LABEL_NONE" ],
     "arrange": "rows",
-    "width": 12,
+    "width": 14,
     "widgets": [
       "spacebar_hp_head_graph",
       "spacebar_hp_torso_graph",
