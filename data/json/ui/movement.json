@@ -43,7 +43,7 @@
   {
     "id": "move_count_mode_desc",
     "type": "widget",
-    "label": "Move",
+    "label": "무브",
     "style": "text",
     "var": "move_count_mode_text",
     "//": "Colorized movement counter and mode letter, like 100(W), from display::move_count_and_mode_text_color"
