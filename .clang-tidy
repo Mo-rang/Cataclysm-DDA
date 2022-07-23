@@ -55,7 +55,6 @@ readability-*,\
 -modernize-return-braced-init-list,\
 -modernize-use-default-member-init,\
 -performance-no-automatic-move,\
--performance-trivially-destructible,\
 -performance-unnecessary-value-param,\
 -readability-convert-member-functions-to-static,\
 -readability-else-after-return,\
@@ -64,7 +63,6 @@ readability-*,\
 -readability-magic-numbers,\
 -readability-make-member-function-const,\
 -readability-named-parameter,\
--readability-redundant-access-specifiers,\
 -readability-use-anyofallof,\
 "
 WarningsAsErrors: '*'

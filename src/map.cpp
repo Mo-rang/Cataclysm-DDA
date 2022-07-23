@@ -1193,7 +1193,7 @@ void map::board_vehicle( const tripoint &pos, Character *p )
         avatar *player_character = p->as_avatar();
         if( player_character != nullptr &&
             player_character->grab_point.x == 0 && player_character->grab_point.y == 0 ) {
-            debugmsg( "map::board_vehicle: vehicle not found" );
+            debugmsg( "map::board_vehicle: vehicle with unbroken and BOARDABLE part not found" );
         }
         return;
     }
@@ -9260,8 +9260,6 @@ pathfinding_cache::pathfinding_cache()
 {
     dirty = true;
 }
-
-pathfinding_cache::~pathfinding_cache() = default;
 
 pathfinding_cache &map::get_pathfinding_cache( int zlev ) const
 {
