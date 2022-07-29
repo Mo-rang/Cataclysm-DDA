@@ -630,13 +630,28 @@ void game::reload_tileset()
     // Disable UIs below to avoid accessing the tile context during loading.
     ui_adaptor ui( ui_adaptor::disable_uis_below {} );
     try {
-        tilecontext->reinit();
-        tilecontext->load_tileset( get_option<std::string>( "TILES" ),
-                                   /*precheck=*/false, /*force=*/true,
-                                   /*pump_events=*/true );
-        tilecontext->do_tile_loading_report();
+        closetilecontext->reinit();
+        closetilecontext->load_tileset( get_option<std::string>( "TILES" ),
+                                        /*precheck=*/false, /*force=*/true,
+                                        /*pump_events=*/true );
+        closetilecontext->do_tile_loading_report();
+
+        tilecontext = closetilecontext;
     } catch( const std::exception &err ) {
         popup( _( "Loading the tileset failed: %s" ), err.what() );
+    }
+    if( use_far_tiles ) {
+        try {
+            if( fartilecontext->is_valid() ) {
+                fartilecontext->reinit();
+            }
+            fartilecontext->load_tileset( get_option<std::string>( "DISTANT_TILES" ),
+                                          /*precheck=*/false, /*force=*/true,
+                                          /*pump_events=*/true );
+            fartilecontext->do_tile_loading_report();
+        } catch( const std::exception &err ) {
+            popup( _( "Loading the zoomed out tileset failed: %s" ), err.what() );
+        }
     }
     try {
         overmap_tilecontext->reinit();
@@ -1556,7 +1571,7 @@ npc *game::find_npc( character_id id )
     return overmap_buffer.find_npc( id ).get();
 }
 
-npc *game::find_npc_by_unique_id( std::string unique_id )
+npc *game::find_npc_by_unique_id( const std::string &unique_id )
 {
     return overmap_buffer.find_npc_by_unique_id( unique_id ).get();
 }
@@ -1912,7 +1927,7 @@ int game::inventory_item_menu( item_location locThisItem,
             if( oThisItem.num_item_stacks() > 0 ) {
                 addentry( 'o', pgettext( "action", "open" ), hint_rating::good );
             }
-            addentry( 'v', pgettext( "action", "pocket auto pickup settings" ), hint_rating::good );
+            addentry( 'v', pgettext( "action", "pocket settings" ), hint_rating::good );
         }
 
         if( oThisItem.is_favorite ) {
@@ -2940,12 +2955,12 @@ memorial_logger &game::memorial()
     return *memorial_logger_ptr;
 }
 
-void game::update_unique_npc_location( std::string id, point_abs_om loc )
+void game::update_unique_npc_location( const std::string &id, point_abs_om loc )
 {
     unique_npcs[id] = loc;
 }
 
-point_abs_om game::get_unique_npc_location( std::string id )
+point_abs_om game::get_unique_npc_location( const std::string &id )
 {
     if( unique_npc_exists( id ) ) {
         return unique_npcs[id];
@@ -2955,12 +2970,12 @@ point_abs_om game::get_unique_npc_location( std::string id )
     }
 }
 
-bool game::unique_npc_exists( std::string id )
+bool game::unique_npc_exists( const std::string &id )
 {
     return unique_npcs.count( id ) > 0;
 }
 
-void game::unique_npc_despawn( std::string id )
+void game::unique_npc_despawn( const std::string &id )
 {
     unique_npcs.erase( id );
 }

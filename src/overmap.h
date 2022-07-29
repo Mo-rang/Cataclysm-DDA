@@ -110,8 +110,8 @@ enum class radio_type : int {
 
 extern std::map<radio_type, std::string> radio_type_names;
 
-static constexpr int RADIO_MIN_STRENGTH = 80;
-static constexpr int RADIO_MAX_STRENGTH = 200;
+static constexpr int RADIO_MIN_STRENGTH = 120;
+static constexpr int RADIO_MAX_STRENGTH = 360;
 
 struct radio_tower {
     // local (to the containing overmap) submap coordinates
@@ -254,7 +254,7 @@ class overmap
         tripoint_om_omt find_random_omt( const std::string &omt_base_type,
                                          ot_match_type match_type = ot_match_type::type,
                                          cata::optional<city> target_city = cata::nullopt ) const {
-            return find_random_omt( std::make_pair( omt_base_type, match_type ), target_city );
+            return find_random_omt( std::make_pair( omt_base_type, match_type ), std::move( target_city ) );
         }
         /**
          * Return a vector containing the absolute coordinates of

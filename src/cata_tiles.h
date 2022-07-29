@@ -88,7 +88,8 @@ class texture
         SDL_Rect srcrect = { 0, 0, 0, 0 };
 
     public:
-        texture( std::shared_ptr<SDL_Texture> ptr, const SDL_Rect &rect ) : sdl_texture_ptr( ptr ),
+        texture( std::shared_ptr<SDL_Texture> ptr,
+                 const SDL_Rect &rect ) : sdl_texture_ptr( std::move( ptr ) ),
             srcrect( rect ) { }
         texture() = default;
 
@@ -359,6 +360,11 @@ class cata_tiles
         void set_draw_scale( int scale );
 
         void on_options_changed();
+
+        // checks if the tileset_ptr is valid
+        bool is_valid() {
+            return tileset_ptr != nullptr;
+        }
 
         /** Draw to screen */
         void draw( const point &dest, const tripoint &center, int width, int height,

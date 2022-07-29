@@ -354,13 +354,13 @@ class map
         bool check_seen_cache( const tripoint &p ) const {
             std::bitset<MAPSIZE_X *MAPSIZE_Y> &memory_seen_cache =
                 get_cache( p.z ).map_memory_seen_cache;
-            return !memory_seen_cache[ static_cast<size_t>( p.x + p.y * MAPSIZE_Y ) ];
+            return !memory_seen_cache[ p.x + p.y * MAPSIZE_Y ];
         }
         bool check_and_set_seen_cache( const tripoint &p ) const {
             std::bitset<MAPSIZE_X *MAPSIZE_Y> &memory_seen_cache =
                 get_cache( p.z ).map_memory_seen_cache;
-            if( !memory_seen_cache[ static_cast<size_t>( p.x + p.y * MAPSIZE_Y ) ] ) {
-                memory_seen_cache.set( static_cast<size_t>( p.x + p.y * MAPSIZE_Y ) );
+            if( !memory_seen_cache[ p.x + p.y * MAPSIZE_Y ] ) {
+                memory_seen_cache.set( p.x + p.y * MAPSIZE_Y );
                 return true;
             }
             return false;
@@ -1059,6 +1059,8 @@ class map
                                bool same_submap = false, bool toggle_between = false );
         void transform_radius( ter_furn_transform_id transform, float radi,
                                const tripoint_abs_ms &p );
+        void transform_line( ter_furn_transform_id transform, const tripoint_abs_ms &first,
+                             const tripoint_abs_ms &second );
         bool close_door( const tripoint &p, bool inside, bool check_only );
         bool open_door( Creature const &u, const tripoint &p, bool inside, bool check_only = false );
         // Destruction
@@ -1683,6 +1685,10 @@ class map
         virtual bool inbounds( const tripoint &p ) const;
         bool inbounds( const tripoint_bub_ms &p ) const;
         bool inbounds( const tripoint_abs_ms &p ) const;
+        bool inbounds( const tripoint_abs_sm &p ) const {
+            return inbounds( project_to<coords::omt>( p ) );
+        }
+        bool inbounds( const tripoint_abs_omt &p ) const;
         bool inbounds( const point &p ) const {
             return inbounds( tripoint( p, 0 ) );
         }
@@ -1742,7 +1748,7 @@ class map
         void spawn_monsters_submap( const tripoint &gp, bool ignore_sight );
         // Helper #2 - spawns monsters on one submap and from one group on this submap
         void spawn_monsters_submap_group( const tripoint &gp, mongroup &group,
-                                          const tripoint_abs_sm &submap_pos, bool ignore_sight );
+                                          bool ignore_sight );
 
     protected:
         void saven( const tripoint &grid );
@@ -1826,6 +1832,7 @@ class map
         void apply_character_light( Character &p );
 
         int my_MAPSIZE;
+        int my_HALF_MAPSIZE;
         bool zlevels;
 
         /**
