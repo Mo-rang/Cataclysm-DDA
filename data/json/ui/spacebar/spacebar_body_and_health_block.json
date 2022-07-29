@@ -80,7 +80,7 @@
     "type": "widget",
     "style": "text",
     "colors": [ "c_dark_gray" ],
-    "string": "   b 출혈, + 붕대, $ 감염   "
+    "string": "     b 출혈, + 붕대, $ 소독     "
   },
   {
     "id": "spacebar_legend_bar_2",
